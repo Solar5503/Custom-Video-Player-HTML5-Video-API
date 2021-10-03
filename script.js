@@ -16,6 +16,7 @@ const progress = document.getElementById('progress');
 const timestamp = document.getElementById('timestamp');
 const volume = document.getElementById('volume');
 const volumeCaption = document.querySelector('.volumeCaption');
+const fullscreen = document.getElementById('fullscreen');
 
 //play & pause video
 function toggleVideoStatus() {
@@ -60,19 +61,8 @@ function stopVideo() {
   video.pause();
 }
 
-video.addEventListener('click', toggleVideoStatus);
-video.addEventListener('pause', updatePlayIcon);
-video.addEventListener('play', updatePlayIcon);
-video.addEventListener('timeupdate', updateProgress);
-
-play.addEventListener('click', toggleVideoStatus);
-
-stop.addEventListener('click', stopVideo);
-
-progress.addEventListener('change', setVideoProgress);
-
-volume.addEventListener('change', (e) => {
-  video.volume = volume.value;
+//update volume icon
+function updateVolumeIcon() {
   if (volume.value > 0.5) {
     volumeCaption.classList.remove('fa-volume-off');
     volumeCaption.classList.remove('fa-volume-down');
@@ -87,4 +77,32 @@ volume.addEventListener('change', (e) => {
     volumeCaption.classList.add('fa-volume-off');
   }
   volume.style.setProperty('--valVol', +volume.value * 100);
+}
+
+video.addEventListener('click', toggleVideoStatus);
+video.addEventListener('pause', updatePlayIcon);
+video.addEventListener('play', updatePlayIcon);
+video.addEventListener('timeupdate', updateProgress);
+
+play.addEventListener('click', toggleVideoStatus);
+
+stop.addEventListener('click', stopVideo);
+
+progress.addEventListener('change', setVideoProgress);
+
+//change volume & icons
+volume.addEventListener('change', (e) => {
+  video.volume = volume.value;
+  updateVolumeIcon();
+});
+
+//run fullscreen
+fullscreen.addEventListener('click', (e) => {
+  video.requestFullscreen();
+});
+
+//synchronization volume between fullscreen and normal screen
+video.addEventListener('volumechange', (e) => {
+  volume.value = video.volume;
+  updateVolumeIcon();
 });

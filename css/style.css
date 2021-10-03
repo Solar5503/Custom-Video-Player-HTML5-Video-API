@@ -15,7 +15,7 @@ body {
 h1 {
   color: white;
   margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
   filter: drop-shadow(0 0 5px #398ff2);
 }
 .wrapper {
@@ -36,6 +36,9 @@ h1 {
   border-bottom: none;
   width: 80%;
   height: 100%;
+}
+.screen:fullscreen {
+  border: 0;
 }
 .controls {
   background: rgb(34, 28, 28);
@@ -89,7 +92,7 @@ h1 {
 .fa-volume-down,
 .fa-volume-up,
 .fa-volume-off {
-  color: #398ff2;
+  color: #60a8fa;
   filter: drop-shadow(0 0 5px #73acec);
 }
 .controls .btn {
@@ -116,7 +119,7 @@ h1 {
 .controls .timestamp {
   color: white;
   font-weight: bold;
-  margin-left: 10px;
+  margin: 0 10px;
   filter: drop-shadow(0 0 5px #398ff2);
 }
 .btn:focus {
@@ -132,5 +135,11 @@ h1 {
   .wrapper {
     height: 40vh;
     width: 100vw;
+  }
+  .controls {
+    padding: 3px 5px;
+  }
+  .sound {
+    width: 13rem;
   }
 }
