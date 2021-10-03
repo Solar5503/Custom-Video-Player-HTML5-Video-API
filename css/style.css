@@ -58,21 +58,39 @@ h1 {
   border-right: 1px solid rgba(255, 255, 255, 0.7);
   border-left: 1px solid rgba(255, 255, 255, 0.7);
   width: 10rem;
+  height: 2rem;
 }
 .volume {
   --valVol: 50;
   --posVol: calc(0.5em + 0.01 * var(--valVol) * (100% - 1em));
+  visibility: hidden;
+  transition: all 1s ease-in;
+  filter: drop-shadow(0 0 5px #398ff2);
+  width: 95%;
 }
 .js .volume::-webkit-slider-runnable-track {
   background: linear-gradient(#b3d6ec, #368aec 70%, #398ff2) 0 / var(--posVol)
       100% no-repeat,
     linear-gradient(#e4e5e7, #fffefc 70%, #bfc2c7);
 }
+.sound:hover .volume {
+  visibility: visible;
+}
+.wrapperSound {
+  visibility: hidden;
+  background: black;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px #398ff2);
+  transition: all 1.2s ease-in;
+}
+.sound:hover .wrapperSound {
+  visibility: visible;
+}
 .fa-volume-down,
 .fa-volume-up,
 .fa-volume-off {
-  transform: scale(0.7);
-  filter: drop-shadow(0 0 5px #398ff2);
+  color: #398ff2;
+  filter: drop-shadow(0 0 5px #73acec);
 }
 .controls .btn {
   border: 0;

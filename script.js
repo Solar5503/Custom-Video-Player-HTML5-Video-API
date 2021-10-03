@@ -77,7 +77,7 @@ volume.addEventListener('change', (e) => {
     volumeCaption.classList.remove('fa-volume-off');
     volumeCaption.classList.remove('fa-volume-down');
     volumeCaption.classList.add('fa-volume-up');
-  } else if (volume.value < 0.5) {
+  } else if (volume.value <= 0.5) {
     volumeCaption.classList.remove('fa-volume-off');
     volumeCaption.classList.remove('fa-volume-up');
     volumeCaption.classList.add('fa-volume-down');
