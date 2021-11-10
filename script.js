@@ -18,6 +18,9 @@ const volume = document.getElementById('volume');
 const volumeCaption = document.querySelector('.volumeCaption');
 const fullscreen = document.getElementById('fullscreen');
 
+//Set volume 50% by default
+video.volume = 0.5;
+
 //play & pause video
 function toggleVideoStatus() {
   if (video.paused) video.play();
